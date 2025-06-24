@@ -9,6 +9,10 @@ app = Flask(__name__)
 # Transfomers library using pipeline.
 model = pipeline('sentiment-analysis')
 
+# Load once
+classifier = pipeline("sentiment-analysis", model="distilbert/distilbert-base-uncased-finetuned-sst-2-english")
+
+
 # Route of home page
 @app.route('/')
 def home():
