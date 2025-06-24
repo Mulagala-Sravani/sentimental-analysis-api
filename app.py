@@ -12,7 +12,7 @@ model = pipeline('sentiment-analysis')
 # Route of home page
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
 
 # Route of sentiment analysis api
