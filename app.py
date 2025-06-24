@@ -38,12 +38,12 @@ def sentiment_analysis():
         print(json.dumps(json_data))
 
         # Return the rendered template with sentiment and text
-        return render_template('home.html', sentiment=sentiment, sentiment_json=sentiment_jsonify, json_text=json_text)
+        return render_template('index.html', sentiment=sentiment, sentiment_json=sentiment_jsonify, json_text=json_text)
 
     except Exception as e:
         # If an exception occurs, display an error message in the template
         error_msg = str(e)
-        return render_template('home.html', error_msg=error_msg)
+        return render_template('index.html', error_msg=error_msg)
 
 
 # Run the Flask app
