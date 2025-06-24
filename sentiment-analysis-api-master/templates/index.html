@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Sentiment Analysis</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='{{ url_for('static', filename='css/styles.css') }}'>
+</head>
+
+<body>
+
+    <!-- Input Section -->
+    <div class="input_div">
+
+        <!-- Error Message -->
+        {% if error_msg %}
+            <p class="error_msg">{{ error_msg }}</p>
+        {% endif %}
+    
+        <h1>Sentiment Analysis</h1>
+    
+        <form action="/analyze" method="POST">
+            <label for="text">Your Thoughts:</label>
+            <input 
+                type="text" 
+                name="text" 
+                id="text" 
+                placeholder="What's on your mind, User?" 
+                autocomplete="off" 
+                required
+            >
+    
+            <button type="submit">Analyze</button>
+        </form>
+    </div>
+    
+    
+   <!-- Result Output -->
+    <div class="result_div">
+     <h2>Analysis Result</h2>
+
+        {% if sentiment %} 
+            <div class="sentiment_result">
+                <p><strong>Analyzed Sentiment:</strong></p>
+                <!-- 
+                    <p class="sentiment_tag">{{ sentiment }}</p>
+                -->
+                 <p class="sentiment_tag
+                    {% if sentiment.lower() == 'positive' %}positive
+                    {% elif sentiment.lower() == 'negative' %}negative
+                    {% elif sentiment.lower() == 'neutral' %}neutral
+                    {% endif %}">
+                    {{ sentiment }}
+                 </p>
+            </div>
+
+            <div class="sentiment_jsonview">
+                <p><strong>Input Text:</strong></p>
+                <pre>{ "text": "{{ json_text['text'] }}" }</pre>
+
+                <p><strong>Sentiment (JSON):</strong></p>
+                <pre>{ "sentiment": "{{ sentiment_json['sentiment'] }}" }</pre>
+            </div>
+        {% endif %}
+    </div>
+
+
+    </body>
+
+</html>
+
+
