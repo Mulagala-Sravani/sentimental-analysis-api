@@ -76,13 +76,8 @@ follow (step 2), and (step 6).
 
 
 Thank you.
-<<<<<<< HEAD
 - Md. Rejoan Siddiky.
 siddikyrejoan@gmail.com
-=======
-Mulagala Sravani
-mulagalasravani84@gmail.com
->>>>>>> 88d8086b7a8be344d82879d7236890aba4362906
 
 
 
